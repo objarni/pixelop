@@ -158,35 +158,34 @@ func ToWinOp(imdOp ImdOp) WinOp {
 //}
 //
 
-//type ImageOp struct {
-//	imageMap  map[internal.Image]*px.Sprite
-//	imageName internal.Image
-//}
-//
-//func (imageOp ImageOp) String() string {
-//	return fmt.Sprintf("Image \"%v\"", imageOp.imageName)
-//}
-//
-//func (imageOp ImageOp) Lines() []string {
-//	return []string{imageOp.String()}
-//}
-//
-//func (imageOp ImageOp) Render(_ px.Matrix, canvas *pixelgl.Canvas) {
-//	imageOp.DrawTo(canvas, Context{Transform: px.IM})
-//}
-//
-//func (imageOp ImageOp) DrawTo(canvas *pixelgl.Canvas, _ Context) {
-//	sprite := imageOp.imageMap[imageOp.imageName]
-//	sprite.Draw(canvas, px.IM)
-//}
+type ImageOp struct {
+	image *px.Sprite
+	name  string
+}
 
-// TODO: Move the imageMap to context; need to refactor tests though!
-//func Image(imageMap map[internal.Image]*px.Sprite, imageName internal.Image) WinOp {
-//	return ImageOp{
-//		imageMap:  imageMap,
-//		imageName: imageName,
-//	}
-//}
+func (imageOp ImageOp) String() string {
+	return fmt.Sprintf("Image \"%v\"", imageOp.name)
+}
+
+func (imageOp ImageOp) Lines() []string {
+	return []string{imageOp.String()}
+}
+
+func (imageOp ImageOp) Render(_ px.Matrix, canvas *pixelgl.Canvas) {
+	imageOp.DrawTo(canvas, Context{Transform: px.IM})
+}
+
+func (imageOp ImageOp) DrawTo(canvas *pixelgl.Canvas, _ Context) {
+	sprite := imageOp.image
+	sprite.Draw(canvas, px.IM)
+}
+
+func Image(image *px.Sprite, name string) WinOp {
+	return ImageOp{
+		image: image,
+		name:  name,
+	}
+}
 
 type ColorOp struct {
 	color color.Color

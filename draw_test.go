@@ -2,6 +2,8 @@ package draw
 
 import (
 	"fmt"
+	"golang.org/x/image/colornames"
+
 	//approvals "github.com/approvals/go-approval-tests"
 	"github.com/faiface/pixel"
 	//"golang.org/x/image/colornames"
@@ -136,32 +138,32 @@ func Example_movedRectangleWinOp() {
 //	//   TileLayer "Foreground"
 //}
 
-//func Example_movedImageWinOp() {
-//	fmt.Println(Moved(pixel.V(55, -88), Image(nil, internal.IMap)).String())
-//	// Output:
-//	// Moved 55 pixels right 88 pixels down:
-//	//   Image "IMap"
-//}
-//
-//func Example_colorImageWinOp() {
-//	fmt.Println(Color(colornames.Red, Image(nil, internal.IMap)).String())
-//	// Output:
-//	// Color {255 0 0 255}:
-//	//   Image "IMap"
-//}
-//
-//func Example_sequencedWinOps() {
-//	mapImage := Color(colornames.Red, Image(nil, internal.IMap))
-//	ghostImage := Color(colornames.Yellow, Image(nil, internal.IGhost))
-//	sequence := OpSequence(mapImage, ghostImage)
-//	fmt.Println(sequence.String())
-//	// Output:
-//	// WinOp Sequence:
-//	//   Color {255 0 0 255}:
-//	//     Image "IMap"
-//	//   Color {255 255 0 255}:
-//	//     Image "IGhost"
-//}
+func Example_movedImageWinOp() {
+	fmt.Println(Moved(pixel.V(55, -88), Image(nil, "IMap")).String())
+	// Output:
+	// Moved 55 pixels right 88 pixels down:
+	//   Image "IMap"
+}
+
+func Example_colorImageWinOp() {
+	fmt.Println(Color(colornames.Red, Image(nil, "IMap")).String())
+	// Output:
+	// Color {255 0 0 255}:
+	//   Image "IMap"
+}
+
+func Example_sequencedWinOps() {
+	mapImage := Color(colornames.Red, Image(nil, "IMap"))
+	ghostImage := Color(colornames.Yellow, Image(nil, "IGhost"))
+	sequence := OpSequence(mapImage, ghostImage)
+	fmt.Println(sequence.String())
+	// Output:
+	// WinOp Sequence:
+	//   Color {255 0 0 255}:
+	//     Image "IMap"
+	//   Color {255 255 0 255}:
+	//     Image "IGhost"
+}
 
 //func init() {
 //	approvals.UseReporter(tests.ReportWithMeld())
