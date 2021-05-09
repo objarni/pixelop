@@ -13,10 +13,6 @@ type ImdCircle struct {
 	center            pixel.Vec
 }
 
-func C(x, y float64) pixel.Vec {
-	return pixel.V(x, y)
-}
-
 func (circle ImdCircle) String() string {
 	return fmt.Sprintf("Circle radius %v center %v thickness %v",
 		circle.radius,
@@ -160,8 +156,4 @@ func (sequence ImdSequence) Lines() []string {
 func (sequence ImdSequence) Then(imdOp ImdOp) ImdSequence {
 	ops := append(sequence.imdOps, imdOp)
 	return ImdOpSequence(ops...)
-}
-
-func Nothing() ImdSequence {
-	return ImdOpSequence()
 }
