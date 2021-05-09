@@ -3,7 +3,6 @@ package draw
 import (
 	"fmt"
 	"golang.org/x/image/colornames"
-
 	//approvals "github.com/approvals/go-approval-tests"
 	"github.com/faiface/pixel"
 	//"golang.org/x/image/colornames"
@@ -165,15 +164,16 @@ func Example_sequencedWinOps() {
 	//     Image "IGhost"
 }
 
-//func init() {
-//	approvals.UseReporter(tests.ReportWithMeld())
-//}
-//
-
-//func Test_mirroredImage(t *testing.T) {
-//	mapImage := Image(nil, internal.IMap)
-//	ghostImage := Color(colornames.Yellow, Image(nil, internal.IGhost))
-//	seq := OpSequence(mapImage, ghostImage)
-//	mirrored := Mirrored(seq)
-//	approvals.VerifyString(t, mirrored.String()+"\n")
-//}
+func ExampleMirrored() {
+	mapImage := Image(nil, "IMap")
+	ghostImage := Color(colornames.Yellow, Image(nil, "IGhost"))
+	seq := OpSequence(mapImage, ghostImage)
+	mirrored := Mirrored(seq)
+	fmt.Println(mirrored.String())
+	// Output:
+	// Mirrored around Y axis:
+	//   WinOp Sequence:
+	//     Image "IMap"
+	//     Color {255 255 0 255}:
+	//       Image "IGhost"
+}
