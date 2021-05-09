@@ -2,14 +2,9 @@ package draw
 
 import (
 	"fmt"
-	"golang.org/x/image/colornames"
-	//approvals "github.com/approvals/go-approval-tests"
 	px "github.com/faiface/pixel"
-	//"golang.org/x/image/colornames"
+	"golang.org/x/image/colornames"
 	"image/color"
-	//"objarni/rescue-on-fractal-bun/internal"
-	//"objarni/rescue-on-fractal-bun/tests"
-	//"testing"
 )
 
 // ImdOp
