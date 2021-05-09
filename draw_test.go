@@ -130,12 +130,12 @@ func Example_movedRectangleWinOp() {
 	//     Rectangle from Vec(0, 4) to Vec(5, 6) thickness 10
 }
 
-//func Example_movedTileLayerWinOp() {
-//	fmt.Println(Moved(px.V(100, -80), TileLayer(nil, "Foreground")).String())
-//	// Output:
-//	// Moved 100 pixels right 80 pixels down:
-//	//   TileLayer "Foreground"
-//}
+func Example_movedTileLayerWinOp() {
+	fmt.Println(Moved(px.V(100, -80), TileLayer(nil, "Foreground")).String())
+	// Output:
+	// Moved 100 pixels right 80 pixels down:
+	//   TileLayer "Foreground"
+}
 
 func Example_movedImageWinOp() {
 	fmt.Println(Moved(px.V(55, -88), Image(nil, "IMap")).String())

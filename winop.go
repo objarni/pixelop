@@ -2,13 +2,12 @@ package draw
 
 import (
 	"fmt"
-	//"github.com/bcvery1/tilepix"
+	"github.com/bcvery1/tilepix"
 	px "github.com/faiface/pixel"
 	"github.com/faiface/pixel/imdraw"
 	"github.com/faiface/pixel/pixelgl"
 	"golang.org/x/image/colornames"
 	"image/color"
-	//"objarni/rescue-on-fractal-bun/internal"
 	"strings"
 )
 
@@ -129,34 +128,33 @@ func ToWinOp(imdOp ImdOp) WinOp {
 	return WinImdOp{imdOp: imdOp}
 }
 
-//type TileLayerOp struct {
-//	layerName string
-//	tileMap   *tilepix.Map
-//}
-//
-//func (tileLayerOp TileLayerOp) String() string {
-//	return fmt.Sprintf("TileLayer \"Foreground\"")
-//}
-//
-//func (tileLayerOp TileLayerOp) Lines() []string {
-//	return []string{tileLayerOp.String()}
-//}
-//
-//func (tileLayerOp TileLayerOp) Render(_ px.Matrix, canvas *pixelgl.Canvas) {
-//	tileLayerOp.DrawTo(canvas, Context{Transform: px.IM})
-//}
-//
-//func (tileLayerOp TileLayerOp) DrawTo(canvas *pixelgl.Canvas, _ Context) {
-//	_ = tileLayerOp.tileMap.GetTileLayerByName(tileLayerOp.layerName).Draw(canvas)
-//}
-//
-//func TileLayer(tileMap *tilepix.Map, layerName string) WinOp {
-//	return TileLayerOp{
-//		layerName: layerName,
-//		tileMap:   tileMap,
-//	}
-//}
-//
+type TileLayerOp struct {
+	layerName string
+	tileMap   *tilepix.Map
+}
+
+func (tileLayerOp TileLayerOp) String() string {
+	return fmt.Sprintf("TileLayer \"Foreground\"")
+}
+
+func (tileLayerOp TileLayerOp) Lines() []string {
+	return []string{tileLayerOp.String()}
+}
+
+func (tileLayerOp TileLayerOp) Render(_ px.Matrix, canvas *pixelgl.Canvas) {
+	tileLayerOp.DrawTo(canvas, Context{Transform: px.IM})
+}
+
+func (tileLayerOp TileLayerOp) DrawTo(canvas *pixelgl.Canvas, _ Context) {
+	_ = tileLayerOp.tileMap.GetTileLayerByName(tileLayerOp.layerName).Draw(canvas)
+}
+
+func TileLayer(tileMap *tilepix.Map, layerName string) WinOp {
+	return TileLayerOp{
+		layerName: layerName,
+		tileMap:   tileMap,
+	}
+}
 
 type ImageOp struct {
 	image *px.Sprite
