@@ -77,7 +77,7 @@ func winMovedHeader(winMoved WinMoved) string {
 		ynum *= -1
 		yword = "down"
 	}
-	head := fmt.Sprintf("Moved %v pixels %v %v pixels %v:",
+	head := fmt.Sprintf("Moved %1.f pixels %v %1.f pixels %v:",
 		xnum,
 		xword,
 		ynum,

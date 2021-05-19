@@ -110,7 +110,7 @@ func Example_liftImdOp() {
 }
 
 func Example_movedLineWinOp() {
-	fmt.Print(Moved(px.V(50, 100), ToWinOp(Line(px.V(0, 4), px.V(5, 6), 10))).String())
+	fmt.Print(Moved(px.V(50, 100.41001), ToWinOp(Line(px.V(0, 4), px.V(5, 6), 10))).String())
 	// Output:
 	// Moved 50 pixels right 100 pixels up:
 	//   WinOp from ImdOp:
